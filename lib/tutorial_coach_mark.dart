@@ -39,6 +39,7 @@ class TutorialCoachMark {
   final bool showSkipInLastTarget;
   final ImageFilter? imageFilter;
   final int initialFocus;
+  final ThemeData? themeData;
 
   OverlayEntry? _overlayEntry;
 
@@ -65,36 +66,40 @@ class TutorialCoachMark {
     this.showSkipInLastTarget = true,
     this.imageFilter,
     this.initialFocus = 0,
+    this.themeData,
   }) : assert(opacityShadow >= 0 && opacityShadow <= 1);
 
   OverlayEntry _buildOverlay({bool rootOverlay = false}) {
     return OverlayEntry(
       builder: (context) {
-        return TutorialCoachMarkWidget(
-          key: _widgetKey,
-          targets: targets,
-          clickTarget: onClickTarget,
-          onClickTargetWithTapPosition: onClickTargetWithTapPosition,
-          clickOverlay: onClickOverlay,
-          paddingFocus: paddingFocus,
-          onClickSkip: skip,
-          alignSkip: alignSkip,
-          skipWidget: skipWidget,
-          textSkip: textSkip,
-          textStyleSkip: textStyleSkip,
-          hideSkip: hideSkip,
-          useSafeArea: useSafeArea,
-          colorShadow: colorShadow,
-          opacityShadow: opacityShadow,
-          focusAnimationDuration: focusAnimationDuration,
-          unFocusAnimationDuration: unFocusAnimationDuration,
-          pulseAnimationDuration: pulseAnimationDuration,
-          pulseEnable: pulseEnable,
-          finish: finish,
-          rootOverlay: rootOverlay,
-          showSkipInLastTarget: showSkipInLastTarget,
-          imageFilter: imageFilter,
-          initialFocus: initialFocus,
+        return Theme(
+          data: themeData ?? Theme.of(context),
+          child: TutorialCoachMarkWidget(
+            key: _widgetKey,
+            targets: targets,
+            clickTarget: onClickTarget,
+            onClickTargetWithTapPosition: onClickTargetWithTapPosition,
+            clickOverlay: onClickOverlay,
+            paddingFocus: paddingFocus,
+            onClickSkip: skip,
+            alignSkip: alignSkip,
+            skipWidget: skipWidget,
+            textSkip: textSkip,
+            textStyleSkip: textStyleSkip,
+            hideSkip: hideSkip,
+            useSafeArea: useSafeArea,
+            colorShadow: colorShadow,
+            opacityShadow: opacityShadow,
+            focusAnimationDuration: focusAnimationDuration,
+            unFocusAnimationDuration: unFocusAnimationDuration,
+            pulseAnimationDuration: pulseAnimationDuration,
+            pulseEnable: pulseEnable,
+            finish: finish,
+            rootOverlay: rootOverlay,
+            showSkipInLastTarget: showSkipInLastTarget,
+            imageFilter: imageFilter,
+            initialFocus: initialFocus,
+          ),
         );
       },
     );
@@ -160,6 +165,10 @@ class TutorialCoachMark {
   void previous() => _widgetKey.currentState?.previous();
 
   void goTo(int index) => _widgetKey.currentState?.goTo(index);
+
+  void refresh() => _widgetKey.currentState?.refresh();
+
+  int? get currentTargetIndex => _widgetKey.currentState?.currentTargetIndex;
 
   void _removeOverlay() {
     _overlayEntry?.remove();

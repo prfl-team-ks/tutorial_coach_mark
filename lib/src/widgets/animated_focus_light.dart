@@ -118,6 +118,8 @@ abstract class AnimatedFocusLightState extends State<AnimatedFocusLight>
     _revertAnimation();
   }
 
+  int get currentTargetIndex => _currentFocus;
+
   Future _tapHandler({
     bool targetTap = false,
     bool overlayTap = false,
@@ -190,6 +192,31 @@ abstract class AnimatedFocusLightState extends State<AnimatedFocusLight>
     } else {
       _finish();
     }
+  }
+
+  void refresh() {
+    _targetFocus = widget.targets[_currentFocus];
+    var targetPosition = getTargetCurrent(_targetFocus);
+
+    if (targetPosition == null) {
+      _finish();
+      return;
+    }
+
+    setState(() {
+      _targetPosition = targetPosition;
+
+      _positioned = Offset(
+        targetPosition.offset.dx + (targetPosition.size.width / 2),
+        targetPosition.offset.dy + (targetPosition.size.height / 2),
+      );
+
+      if (targetPosition.size.height > targetPosition.size.width) {
+        _sizeCircle = targetPosition.size.height * 0.6 + _getPaddingFocus();
+      } else {
+        _sizeCircle = targetPosition.size.width * 0.6 + _getPaddingFocus();
+      }
+    });
   }
 
   void _finish() {

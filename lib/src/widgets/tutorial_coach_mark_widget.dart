@@ -223,7 +223,8 @@ class TutorialCoachMarkWidgetState extends State<TutorialCoachMarkWidget>
           break;
       }
 
-      return Positioned(
+      return AnimatedPositioned(
+        duration: const Duration(milliseconds: 100),
         top: top,
         bottom: bottom,
         left: left,
@@ -292,4 +293,13 @@ class TutorialCoachMarkWidgetState extends State<TutorialCoachMarkWidget>
   void previous() => _focusLightKey.currentState?.previous();
 
   void goTo(int index) => _focusLightKey.currentState?.goTo(index);
+
+  void refresh() {
+    safeSetState(() {
+      _focusLightKey.currentState?.refresh();
+    });
+  }
+
+  int? get currentTargetIndex =>
+      _focusLightKey.currentState?.currentTargetIndex;
 }
