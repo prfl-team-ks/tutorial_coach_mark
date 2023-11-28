@@ -58,6 +58,7 @@ class CircleClipper extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(covariant CircleClipper oldClipper) {
-    return progress != oldClipper.progress;
+    return progress != oldClipper.progress ||
+        positioned != oldClipper.positioned;
   }
 }

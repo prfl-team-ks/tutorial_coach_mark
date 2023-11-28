@@ -38,7 +38,7 @@ class RectClipper extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(covariant RectClipper oldClipper) {
-    return progress != oldClipper.progress;
+    return progress != oldClipper.progress || target != oldClipper.target;
   }
 
   static Path rectHolePath(

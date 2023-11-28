@@ -63,6 +63,7 @@ class LightPaint extends CustomPainter {
 
   @override
   bool shouldRepaint(LightPaint oldDelegate) {
-    return oldDelegate.progress != progress;
+    return oldDelegate.progress != progress ||
+        oldDelegate.positioned != positioned;
   }
 }

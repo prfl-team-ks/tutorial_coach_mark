@@ -118,6 +118,6 @@ class LightPaintRect extends CustomPainter {
 
   @override
   bool shouldRepaint(LightPaintRect oldDelegate) {
-    return oldDelegate.progress != progress;
+    return oldDelegate.progress != progress || oldDelegate.target != target;
   }
 }
