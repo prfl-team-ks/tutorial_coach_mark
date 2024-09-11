@@ -72,8 +72,8 @@ Attributes:
 | `radius` | double | Use when shape = ShapeLightFocus.RRect |
 | `borderSide` | BorderSide |  |
 | `color` | Color | Custom color to target |
-| `enableOverlayTab` | bool | enable click in all screen to call next step |
-| `enableTargetTab` | bool | enable click in target to call next step |
+| `enableOverlayTap` | bool | enable click in all screen to call next step |
+| `enableTargetTap` | bool | enable click in target to call next step |
 | `alignSkip` | Alignment | use to align the skip in the target |
 | `paddingFocus` | Alignment | settings padding of the focus in target |
 | `focusAnimationDuration` | Duration | override the widget's global focus animation duration |

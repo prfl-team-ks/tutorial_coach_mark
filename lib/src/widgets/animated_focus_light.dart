@@ -316,7 +316,7 @@ class AnimatedStaticFocusLightState extends AnimatedFocusLightState {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: _targetFocus.enableOverlayTab
+      onTap: _targetFocus.enableOverlayTap
           ? () => _tapHandler(overlayTap: true)
           : null,
       child: AnimatedBuilder(
@@ -332,7 +332,7 @@ class AnimatedStaticFocusLightState extends AnimatedFocusLightState {
                 child: InkWell(
                   borderRadius: _betBorderRadiusTarget(),
                   onTapDown: _tapHandlerForPosition,
-                  onTap: _targetFocus.enableTargetTab
+                  onTap: _targetFocus.enableTargetTap
                       ? () => _tapHandler(targetTap: true)
 
                       /// Essential for collecting [TapDownDetails]. Do not make [null]
@@ -408,7 +408,7 @@ class AnimatedPulseFocusLightState extends AnimatedFocusLightState {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: _targetFocus.enableOverlayTab
+      onTap: _targetFocus.enableOverlayTap
           ? () => _tapHandler(overlayTap: true)
           : null,
       child: AnimatedBuilder(
@@ -429,7 +429,7 @@ class AnimatedPulseFocusLightState extends AnimatedFocusLightState {
                     top: top,
                     child: InkWell(
                       borderRadius: _betBorderRadiusTarget(),
-                      onTap: _targetFocus.enableTargetTab
+                      onTap: _targetFocus.enableTargetTap
                           ? () => _tapHandler(targetTap: true)
 
                           /// Essential for collecting [TapDownDetails]. Do not make [null]

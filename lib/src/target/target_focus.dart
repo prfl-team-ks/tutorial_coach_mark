@@ -13,8 +13,8 @@ class TargetFocus {
     this.radius,
     this.borderSide,
     this.color,
-    this.enableOverlayTab = false,
-    this.enableTargetTab = true,
+    this.enableOverlayTap = false,
+    this.enableTargetTap = true,
     this.alignSkip,
     this.paddingFocus,
     this.focusAnimationDuration,
@@ -29,8 +29,8 @@ class TargetFocus {
   final ShapeLightFocus? shape;
   final double? radius;
   final BorderSide? borderSide;
-  final bool enableOverlayTab;
-  final bool enableTargetTab;
+  final bool enableOverlayTap;
+  final bool enableTargetTap;
   final Color? color;
   final AlignmentGeometry? alignSkip;
   final double? paddingFocus;
